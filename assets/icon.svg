@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <title>Tactical Round - compact optical master</title>
+  <desc>Wider rook and heavier grid for native icons at 16, 24 and 32 pixels.</desc>
+  <defs>
+    <radialGradient id="plate" cx=".46" cy=".44" r=".78"><stop stop-color="#12313f"/><stop offset="1" stop-color="#07121f"/></radialGradient>
+    <linearGradient id="tower" x2=".5" y2="1"><stop stop-color="#80fff2"/><stop offset="1" stop-color="#04d7e3"/></linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="160" fill="url(#plate)"/>
+  <path d="M256 128V896M768 128V896M128 256H896M128 768H896" fill="none" stroke="#24cfd5" stroke-width="24" opacity=".7"/>
+  <g fill="url(#tower)" transform="translate(61.44 0) scale(.88 1)">
+    <path d="M336 320H416V384H472V320H552V384H608V320H688V448H336Z"/>
+    <path d="M400 480H624L656 608H368Z"/>
+    <path d="M352 640H672L688 704H336Z"/>
+  </g>
+</svg>

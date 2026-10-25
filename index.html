@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#041319">
+    <title>Tactical Round 战术回合 — 每一步，都改变战局。</title>
+    <meta name="description" content="Tactical Round 是 YvanLouise 制作的回合制塔防游戏。在霓虹勾勒的几何世界中部署防线、调配能量，与优莉和费洛一起向未知出发。">
+    <link rel="canonical" href="https://yvanlouise.github.io/tactical-round/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:title" content="Tactical Round — 每一步，都改变战局。">
+    <meta property="og:description" content="部署防线，读懂几何敌人，掌控每一回合。与优莉和费洛一起，驶向未知的几何边境。">
+    <meta property="og:url" content="https://yvanlouise.github.io/tactical-round/">
+    <meta property="og:image" content="https://yvanlouise.github.io/tactical-round/assets/hero.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href="./assets/icon.svg">
+    <link rel="preload" as="font" href="./assets/barlow-condensed-800.ttf" type="font/ttf" crossorigin>
+    <link rel="preload" as="image" href="./assets/hero.webp" fetchpriority="high">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳至正文</a>
+    <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="arrow-right" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+      <symbol id="arrow-up-right" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></symbol>
+      <symbol id="arrow-down" viewBox="0 0 24 24"><path d="M12 4v16m-6-6 6 6 6-6"/></symbol>
+      <symbol id="chevron" viewBox="0 0 24 24"><path d="m5 9 7 7 7-7"/></symbol>
+      <symbol id="play" viewBox="0 0 24 24"><path d="m7 4 13 8L7 20Z" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+      <symbol id="menu" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16"/></symbol>
+    </svg>
+
+    <header class="site-header" id="top">
+      <div class="header-inner wrap">
+        <a class="brand" href="#top" aria-label="Tactical Round 首页">
+          <img src="./assets/icon.svg" alt="" width="40" height="40">
+          <span>TACTICAL ROUND</span>
+        </a>
+        <button class="menu-toggle icon-button" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="打开导航">
+          <svg class="icon" aria-hidden="true"><use href="#menu"/></svg>
+        </button>
+        <nav class="navigation" id="main-nav" aria-label="主要导航">
+          <a href="#gameplay">玩法</a>
+          <a href="#world">世界</a>
+          <a href="#about">关于</a>
+        </nav>
+        <a class="button button-outline header-cta" href="https://github.com/YvanLouise/tactical-round" target="_blank" rel="noopener noreferrer">
+          GitHub <svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg>
+        </a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-art" aria-hidden="true">
+          <img src="./assets/hero.webp" alt="" width="2172" height="724" fetchpriority="high">
+        </div>
+        <div class="hero-inner wrap">
+          <div class="hero-copy">
+            <h1 id="hero-title"><span>TACTICAL</span><span>ROUND</span><span class="sr-only"> 战术回合</span></h1>
+            <p class="hero-tagline">每一步，都改变战局。</p>
+            <p class="hero-description">一款回合制塔防游戏。在霓虹勾勒的几何世界中，<br class="desktop-break">部署防线、调配能量，与优莉和费洛一起向未知出发。</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#gameplay">探索玩法 <svg class="icon" aria-hidden="true"><use href="#arrow-right"/></svg></a>
+              <button class="button button-outline" type="button" id="watch-opening" aria-haspopup="dialog">
+                <svg class="icon play-icon" aria-hidden="true"><use href="#play"/></svg>观看开场
+              </button>
+            </div>
+          </div>
+          <div class="hero-bottom">
+            <span class="creator"><span class="short-rule" aria-hidden="true"></span>YVANLOUISE <span class="creator-dot">·</span> 独立游戏</span>
+            <a class="scroll-link" href="#gameplay"><svg class="icon" aria-hidden="true"><use href="#arrow-down"/></svg>向下探索</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="gameplay section-space wrap" id="gameplay" aria-labelledby="gameplay-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-index"><span>01</span> / 玩法 <span class="index-rule" aria-hidden="true"></span></p>
+            <h2 id="gameplay-title">思考，然后行动。</h2>
+          </div>
+          <p class="section-intro">建造不是终点。<br>让射程、路线与能量，在同一回合形成配合。</p>
+        </div>
+        <div class="gameplay-layout">
+          <figure class="game-gallery">
+            <div class="game-screen">
+              <img id="gallery-image" src="./assets/battle.webp" alt="实际战场：围绕路线部署多种建筑，迎战迟滞守望者。" width="1280" height="720" loading="lazy" decoding="async">
+              <span class="screen-corner corner-top" aria-hidden="true"></span>
+              <span class="screen-corner corner-bottom" aria-hidden="true"></span>
+            </div>
+            <figcaption class="gallery-caption">
+              <span><span class="short-rule" aria-hidden="true"></span><span id="gallery-label">游戏实机画面</span></span>
+              <div class="gallery-controls">
+                <span class="gallery-count" aria-live="polite" aria-atomic="true"><span id="gallery-current">01</span><span class="count-divider">/</span>03</span>
+                <button class="icon-button gallery-previous" type="button" aria-label="上一张实机画面"><svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></button>
+                <button class="icon-button gallery-next" type="button" aria-label="下一张实机画面"><svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></button>
+              </div>
+            </figcaption>
+          </figure>
+          <div class="tactics" aria-label="玩法介绍">
+            <article class="tactic is-active">
+              <h3><button type="button" class="tactic-trigger" id="tactic-0" aria-expanded="true" aria-controls="tactic-description-0" data-slide="0"><span class="tactic-number">01</span><span>部署你的防线</span><svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></button></h3>
+              <div class="tactic-description" id="tactic-description-0" role="region" aria-labelledby="tactic-0"><p>在敌人前进之前，让建筑先行动。选择位置与朝向，把每一点能量用在关键处。</p></div>
+            </article>
+            <article class="tactic">
+              <h3><button type="button" class="tactic-trigger" id="tactic-1" aria-expanded="false" aria-controls="tactic-description-1" data-slide="1"><span class="tactic-number">02</span><span>读懂几何敌人</span><svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></button></h3>
+              <div class="tactic-description" id="tactic-description-1" role="region" aria-labelledby="tactic-1" hidden><p>形状也是线索。突进、修复、护卫与延迟承伤，让每一种几何敌人都需要不同的应对。</p></div>
+            </article>
+            <article class="tactic">
+              <h3><button type="button" class="tactic-trigger" id="tactic-2" aria-expanded="false" aria-controls="tactic-description-2" data-slide="2"><span class="tactic-number">03</span><span>掌控回合节奏</span><svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></button></h3>
+              <div class="tactic-description" id="tactic-description-2" role="region" aria-labelledby="tactic-2" hidden><p>从容规划下一步，或开启自动回合。挑战模式中，提前一回合安排操作，让判断走在敌人前面。</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="journey" id="world" aria-labelledby="world-title">
+        <div class="journey-art">
+          <img src="./assets/journey.webp" alt="优莉与漂浮伙伴费洛在青色线稿勾勒的森林中醒来。" width="2172" height="724" loading="lazy" decoding="async">
+        </div>
+        <div class="journey-inner wrap">
+          <div class="journey-copy">
+            <p class="section-index"><span class="short-rule" aria-hidden="true"></span><span>02</span> / 旅程</p>
+            <h2 id="world-title">防线之外，<br>还有整个世界。</h2>
+            <p>与优莉和费洛驾驶旅行车，从林间营地出发。发现建筑蓝图，研究新的战术，在一次次防守之间推进旅程。</p>
+            <ol class="region-route" aria-label="主线旅程">
+              <li>林间营地<svg class="icon" aria-hidden="true"><use href="#arrow-right"/></svg></li>
+              <li>杉林岔口<svg class="icon" aria-hidden="true"><use href="#arrow-right"/></svg></li>
+              <li>山脊小径<svg class="icon" aria-hidden="true"><use href="#arrow-right"/></svg></li>
+              <li>石门山口</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing wrap" id="about" aria-labelledby="closing-title">
+        <h2 id="closing-title">下一回合，<br>由你决定。</h2>
+        <div class="closing-action">
+          <p>游戏持续开发中。关注项目，<br>见证几何世界的下一次扩展。</p>
+          <a class="button button-primary" href="https://github.com/YvanLouise/tactical-round" target="_blank" rel="noopener noreferrer">关注 GitHub 项目 <svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer wrap">
+      <a class="footer-brand" href="#top">TACTICAL ROUND</a>
+      <span>© 2026 YvanLouise <span class="footer-note">· 画面来自开发中版本</span></span>
+      <a class="back-to-top" href="#top">回到顶部 <svg class="icon" aria-hidden="true"><use href="#arrow-down"/></svg></a>
+    </footer>
+
+    <dialog class="video-dialog" id="opening-dialog" aria-labelledby="video-title">
+      <div class="dialog-heading"><h2 id="video-title">游戏开场</h2><button class="icon-button close-dialog" type="button" aria-label="关闭开场视频" autofocus><svg class="icon" aria-hidden="true"><use href="#close"/></svg></button></div>
+      <video id="opening-video" controls playsinline preload="none" poster="./assets/opening-poster.webp" aria-label="Tactical Round 游戏原版开场动画">
+        <source src="./assets/opening.mp4" type="video/mp4">
+        你的浏览器暂不支持此视频，可<a href="./assets/opening.mp4">打开开场片段</a>观看。
+      </video>
+      <p class="video-caption" id="video-caption">游戏原版开场 · 无声片段</p>
+    </dialog>
+  </body>
+</html>

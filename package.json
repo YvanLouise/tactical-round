@@ -1,0 +1,12 @@
+{
+  "name": "tactical-round-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Tactical Round game introduction website",
+  "scripts": {
+    "start": "node tools/serve.mjs",
+    "check": "node --check app.js && node tools/check.mjs"
+  },
+  "engines": { "node": ">=20" }
+}
