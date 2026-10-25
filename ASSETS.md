@@ -9,6 +9,12 @@
 | `battle.webp` | `za/mainline_20261021_6b2d/combat/06_hourglass_sentinel_boss.png` |
 | `enemies.webp` | `za/enemy_encounter/first_encounter.png` |
 | `challenge.webp` | `za/auto_parity_20261013_b735a1/captures/challenge_resolving.png` |
+| `loadout.webp` | `za/mainline_20261021_6b2d/ui/entry_loadout.png` |
+| `world-map.webp` | `za/mainline_20261021_6b2d/ui/entry_world.png` |
+| `arrow-tower.svg` | `art/gameplay/buildings/arrow_tower.svg` |
+| `energy-collector.svg` | `art/gameplay/buildings/energy_collector.svg` |
+| `mortar.svg` | `art/gameplay/buildings/mortar.svg` |
+| `prism-tower.svg` | `art/gameplay/buildings/prism_tower.svg` |
 | `icon.svg` | `art/ui/branding/tactical_round/tactical_round_small.svg` |
 | `opening.mp4` | `art/ui/opening/yvanlouise.ogv` 与 `tactical_round.ogv`，按游戏播放顺序拼接为 H.264 |
 | `opening-poster.webp` | 游戏标题开场视频的静态帧 |

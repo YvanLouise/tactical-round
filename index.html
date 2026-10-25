@@ -5,20 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#041319">
     <title>Tactical Round 战术回合 — 每一步，都改变战局。</title>
-    <meta name="description" content="Tactical Round 是 YvanLouise 制作的回合制塔防游戏。在霓虹勾勒的几何世界中部署防线、调配能量，与优莉和费洛一起向未知出发。">
+    <meta name="description" content="Tactical Round《战术回合》是一款由 YvanLouise 制作的回合制塔防游戏。了解先塔后敌的回合规则、蓝图搭配、战役与挑战模式，观看实机画面，与优莉和费洛探索几何世界。">
     <link rel="canonical" href="https://yvanlouise.github.io/tactical-round/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="zh_CN">
     <meta property="og:title" content="Tactical Round — 每一步，都改变战局。">
-    <meta property="og:description" content="部署防线，读懂几何敌人，掌控每一回合。与优莉和费洛一起，驶向未知的几何边境。">
+    <meta property="og:description" content="由你按下「结束回合」的塔防冒险。组合蓝图、预判敌人，与优莉和费洛守住旅行车，探索几何世界。">
     <meta property="og:url" content="https://yvanlouise.github.io/tactical-round/">
-    <meta property="og:image" content="https://yvanlouise.github.io/tactical-round/assets/hero.webp">
+    <meta property="og:site_name" content="Tactical Round">
+    <meta property="og:image" content="https://yvanlouise.github.io/tactical-round/assets/battle.webp">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="720">
+    <meta property="og:image:alt" content="Tactical Round 实机战场：在几何道路周围部署建筑，守护基地车。">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tactical Round — 每一步，都改变战局。">
+    <meta name="twitter:description" content="选择蓝图，部署防线，让判断走在敌人前面。探索开发中的回合制塔防游戏。">
+    <meta name="twitter:image" content="https://yvanlouise.github.io/tactical-round/assets/battle.webp">
     <link rel="icon" type="image/svg+xml" href="./assets/icon.svg">
     <link rel="preload" as="font" href="./assets/barlow-condensed-800.ttf" type="font/ttf" crossorigin>
     <link rel="preload" as="image" href="./assets/hero.webp" fetchpriority="high">
     <link rel="stylesheet" href="./styles.css">
     <script src="./app.js" defer></script>
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"VideoGame","name":"Tactical Round","alternateName":"战术回合","url":"https://yvanlouise.github.io/tactical-round/","description":"由玩家规划部署、按回合推进的塔防游戏。组合建筑蓝图，与优莉和费洛探索霓虹几何世界。","genre":["塔防","回合制策略"],"inLanguage":"zh-CN","creator":{"@type":"Person","name":"YvanLouise"},"image":"https://yvanlouise.github.io/tactical-round/assets/battle.webp"}
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">跳至正文</a>
@@ -43,8 +53,10 @@
         </button>
         <nav class="navigation" id="main-nav" aria-label="主要导航">
           <a href="#gameplay">玩法</a>
+          <a href="#blueprints">蓝图</a>
           <a href="#world">世界</a>
-          <a href="#about">关于</a>
+          <a href="#modes">模式</a>
+          <a href="#faq">问答</a>
         </nav>
         <a class="button button-outline header-cta" href="https://github.com/YvanLouise/tactical-round" target="_blank" rel="noopener noreferrer">
           GitHub <svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg>
@@ -61,7 +73,7 @@
           <div class="hero-copy">
             <h1 id="hero-title"><span>TACTICAL</span><span>ROUND</span><span class="sr-only"> 战术回合</span></h1>
             <p class="hero-tagline">每一步，都改变战局。</p>
-            <p class="hero-description">一款回合制塔防游戏。在霓虹勾勒的几何世界中，<br class="desktop-break">部署防线、调配能量，与优莉和费洛一起向未知出发。</p>
+            <p class="hero-description">由你按下「结束回合」的塔防冒险。选择蓝图、部署建筑、预判敌人的下一步，与优莉和费洛守住旅行车，穿过霓虹勾勒的几何世界。</p>
             <div class="hero-actions">
               <a class="button button-primary" href="#gameplay">探索玩法 <svg class="icon" aria-hidden="true"><use href="#arrow-right"/></svg></a>
               <button class="button button-outline" type="button" id="watch-opening" aria-haspopup="dialog">
@@ -70,7 +82,7 @@
             </div>
           </div>
           <div class="hero-bottom">
-            <span class="creator"><span class="short-rule" aria-hidden="true"></span>YVANLOUISE <span class="creator-dot">·</span> 独立游戏</span>
+            <span class="creator"><span class="short-rule" aria-hidden="true"></span>YVANLOUISE <span class="creator-dot">·</span> 回合制塔防</span>
             <a class="scroll-link" href="#gameplay"><svg class="icon" aria-hidden="true"><use href="#arrow-down"/></svg>向下探索</a>
           </div>
         </div>
@@ -82,17 +94,18 @@
             <p class="section-index"><span>01</span> / 玩法 <span class="index-rule" aria-hidden="true"></span></p>
             <h2 id="gameplay-title">思考，然后行动。</h2>
           </div>
-          <p class="section-intro">建造不是终点。<br>让射程、路线与能量，在同一回合形成配合。</p>
+          <p class="section-intro">建筑先行动，敌人再前进。<br>每一次结束回合，都是对这条防线的检验。</p>
         </div>
         <div class="gameplay-layout">
           <figure class="game-gallery">
-            <div class="game-screen">
+            <a class="game-screen media-link" id="gallery-enlarge" href="./assets/battle.webp" data-lightbox data-caption="防线部署 · 开发版本实机" aria-label="放大当前实机画面">
               <img id="gallery-image" src="./assets/battle.webp" alt="实际战场：围绕路线部署多种建筑，迎战迟滞守望者。" width="1280" height="720" loading="lazy" decoding="async">
               <span class="screen-corner corner-top" aria-hidden="true"></span>
               <span class="screen-corner corner-bottom" aria-hidden="true"></span>
-            </div>
+              <span class="media-hint">查看大图 <svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></span>
+            </a>
             <figcaption class="gallery-caption">
-              <span><span class="short-rule" aria-hidden="true"></span><span id="gallery-label">游戏实机画面</span></span>
+              <span><span class="short-rule" aria-hidden="true"></span><span id="gallery-label">防线部署</span></span>
               <div class="gallery-controls">
                 <span class="gallery-count" aria-live="polite" aria-atomic="true"><span id="gallery-current">01</span><span class="count-divider">/</span>03</span>
                 <button class="icon-button gallery-previous" type="button" aria-label="上一张实机画面"><svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></button>
@@ -103,17 +116,51 @@
           <div class="tactics" aria-label="玩法介绍">
             <article class="tactic is-active">
               <h3><button type="button" class="tactic-trigger" id="tactic-0" aria-expanded="true" aria-controls="tactic-description-0" data-slide="0"><span class="tactic-number">01</span><span>部署你的防线</span><svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></button></h3>
-              <div class="tactic-description" id="tactic-description-0" role="region" aria-labelledby="tactic-0"><p>在敌人前进之前，让建筑先行动。选择位置与朝向，把每一点能量用在关键处。</p></div>
+              <div class="tactic-description" id="tactic-description-0" role="region" aria-labelledby="tactic-0"><p>看清路线、射程与朝向，再决定落点。建造和升级都需要能量：现在补上火力，还是为后续布置留出余量？</p></div>
             </article>
             <article class="tactic">
               <h3><button type="button" class="tactic-trigger" id="tactic-1" aria-expanded="false" aria-controls="tactic-description-1" data-slide="1"><span class="tactic-number">02</span><span>读懂几何敌人</span><svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></button></h3>
-              <div class="tactic-description" id="tactic-description-1" role="region" aria-labelledby="tactic-1" hidden><p>形状也是线索。突进、修复、护卫与延迟承伤，让每一种几何敌人都需要不同的应对。</p></div>
+              <div class="tactic-description" id="tactic-description-1" role="region" aria-labelledby="tactic-1" hidden><p>突进、护卫、修复、延迟承伤……几何外形背后藏着不同能力。遇到新敌人时打开情报，判断该优先处理谁。</p></div>
             </article>
             <article class="tactic">
               <h3><button type="button" class="tactic-trigger" id="tactic-2" aria-expanded="false" aria-controls="tactic-description-2" data-slide="2"><span class="tactic-number">03</span><span>掌控回合节奏</span><svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></button></h3>
-              <div class="tactic-description" id="tactic-description-2" role="region" aria-labelledby="tactic-2" hidden><p>从容规划下一步，或开启自动回合。挑战模式中，提前一回合安排操作，让判断走在敌人前面。</p></div>
+              <div class="tactic-description" id="tactic-description-2" role="region" aria-labelledby="tactic-2" hidden><p>战役中可以手动规划，教学结束后也能开启自动回合。挑战模式持续推进，提交的战场指令要到下一回合才执行。</p></div>
             </article>
           </div>
+        </div>
+        <div class="turn-guide" aria-labelledby="turn-title">
+          <div class="turn-heading"><h3 id="turn-title">一回合，怎样发生？</h3><span>以普通战役为例</span></div>
+          <ol class="turn-steps">
+            <li><span class="step-number">01</span><h4>部署与准备</h4><p>查看情报、建造或升级。准备好后，点击「结束回合」。</p></li>
+            <li><span class="step-number">02</span><h4>收入与来袭</h4><p>结算供能费用和收入，更新建造冷却，按波次投放敌人。</p></li>
+            <li><span class="step-number">03</span><h4>建筑先行动</h4><p>攻击与生产依次发生。弹丸和命中特效完成后，敌人才行动。</p></li>
+            <li><span class="step-number">04</span><h4>敌人再推进</h4><p>敌人移动、攻击并触发能力。检查胜负，再规划下一轮。</p></li>
+          </ol>
+          <p class="rule-note">能量来自收入和产能建筑，击杀不会直接补充能量。把资源规划也放进你的战术里。</p>
+        </div>
+      </section>
+
+      <section class="blueprints section-space wrap" id="blueprints" aria-labelledby="blueprints-title">
+        <div class="section-heading">
+          <div><p class="section-index"><span>02</span> / 蓝图 <span class="index-rule" aria-hidden="true"></span></p><h2 id="blueprints-title">先选阵容，<br>再写下你的解法。</h2></div>
+          <p class="section-intro">火力、产能、定点打击与协同。<br>带上适合这条路线的建筑，让它们彼此配合。</p>
+        </div>
+        <div class="blueprint-layout">
+          <figure class="feature-figure">
+            <a class="media-link" href="./assets/loadout.webp" data-lightbox data-caption="战前蓝图选择 · 开发版本实机" aria-label="放大战前蓝图选择画面"><img src="./assets/loadout.webp" alt="战前建筑选择页面，展示已选蓝图、默认出战的尤里优莉与候选建筑。" width="1280" height="720" loading="lazy" decoding="async"><span class="media-hint">查看大图 <svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></span></a>
+            <figcaption>战前配置实机 · 截图中的界面与数值来自开发版本</figcaption>
+          </figure>
+          <ol class="blueprint-progress">
+            <li><span>发现</span><h3>把新蓝图带回车里</h3><p>推进主线、完成关卡，发现新的建筑。基础蓝图获得后即可加入战前配置。</p></li>
+            <li><span>搭配</span><h3>每个格位，都留给有用的选择</h3><p>初始可以携带 5 张建筑蓝图，优莉不占格位。先看敌人和地形，再决定这次带什么。</p></li>
+            <li><span>研究</span><h3>让熟悉的建筑有新用途</h3><p>在研究舱用晶币解锁升级分支。带入对局后，再花费能量完成升级，调整防线的分工。</p></li>
+          </ol>
+        </div>
+        <div class="building-lineup" aria-label="部分建筑介绍">
+          <article><img src="./assets/arrow-tower.svg" alt="" width="128" height="128" loading="lazy"><p class="building-role">基础火力</p><h3>箭塔</h3><p>覆盖关键路段，按攻击间隔自动迎击进入射程的敌人。</p></article>
+          <article><img src="./assets/energy-collector.svg" alt="" width="128" height="128" loading="lazy"><p class="building-role">长期产能</p><h3>能量收集器</h3><p>按周期提供能量，在眼前的防守与后续的发展之间做选择。</p></article>
+          <article><img src="./assets/mortar.svg" alt="" width="128" height="128" loading="lazy"><p class="building-role">手动轰击</p><h3>迫击炮</h3><p>等待就绪，再选择远处地块开火。保留关键一发的时机。</p></article>
+          <article><img src="./assets/prism-tower.svg" alt="" width="128" height="128" loading="lazy"><p class="building-role">协同集火</p><h3>棱光塔</h3><p>让附近就绪的棱光塔参与传递，把多座塔的火力汇向同一目标。</p></article>
         </div>
       </section>
 
@@ -123,9 +170,9 @@
         </div>
         <div class="journey-inner wrap">
           <div class="journey-copy">
-            <p class="section-index"><span class="short-rule" aria-hidden="true"></span><span>02</span> / 旅程</p>
+            <p class="section-index"><span class="short-rule" aria-hidden="true"></span><span>03</span> / 旅程</p>
             <h2 id="world-title">防线之外，<br>还有整个世界。</h2>
-            <p>与优莉和费洛驾驶旅行车，从林间营地出发。发现建筑蓝图，研究新的战术，在一次次防守之间推进旅程。</p>
+            <p>在林间醒来，和优莉、费洛一起重新出发。旅行车是要守护的基地，也是下一段旅程的起点。从营地到山口，新的路线、敌人与蓝图逐渐展开。</p>
             <ol class="region-route" aria-label="主线旅程">
               <li>林间营地<svg class="icon" aria-hidden="true"><use href="#arrow-right"/></svg></li>
               <li>杉林岔口<svg class="icon" aria-hidden="true"><use href="#arrow-right"/></svg></li>
@@ -136,11 +183,37 @@
         </div>
       </section>
 
+      <section class="expedition wrap" aria-labelledby="expedition-title">
+        <div class="expedition-copy"><h3 id="expedition-title">下一站，不只是一场战斗。</h3><p>在大地图选择目的地，战前查看地形与来袭敌人。防守结束后整理收获、研究蓝图，再向下一片区域前进。</p><p class="expedition-note">旅程地图与区域推进 · 游戏实际画面</p></div>
+        <a class="media-link expedition-map" href="./assets/world-map.webp" data-lightbox data-caption="旅程地图 · 开发版本实机" aria-label="放大旅程地图"><img src="./assets/world-map.webp" alt="几何大陆的大地图：林间营地、山路与远处星门由霓虹青色轮廓勾勒。" width="1280" height="720" loading="lazy" decoding="async"><span class="media-hint">探索地图 <svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></span></a>
+      </section>
+
+      <section class="modes section-space wrap" id="modes" aria-labelledby="modes-title">
+        <div class="section-heading"><div><p class="section-index"><span>04</span> / 模式 <span class="index-rule" aria-hidden="true"></span></p><h2 id="modes-title">用你的节奏，<br>接受不同的考验。</h2></div><p class="section-intro">从容规划，或提前一回合安排操作。<br>同一张地图，可以考验不同的判断。</p></div>
+        <div class="mode-list">
+          <article class="mode-row"><div class="mode-name"><span>CAMPAIGN</span><h3>战役</h3></div><p>沿主线探索区域，发现建筑蓝图。手动推进时，部署阶段没有倒计时；也可在普通关卡开启或停止自动回合。</p><div class="mode-entry"><span>开始旅程</span><p>从序章教学出发<br>序章采用手动回合</p></div></article>
+          <article class="mode-row"><div class="mode-name"><span>CHALLENGE</span><h3>挑战</h3></div><p>自动回合持续推进，建造、升级等战场指令延迟到下一回合执行。提前预判位置、资源和敌人的行动。</p><div class="mode-entry"><span>对应关卡战役通关后</span><p>非序章关卡开放<br>暂停仍然可用</p></div></article>
+          <article class="mode-row"><div class="mode-name"><span>SANDBOX</span><h3>沙盒</h3></div><p>在熟悉的地图里调整数值、生成敌人、试验建筑组合。把想法放到战场上，观察它们怎样运转。</p><div class="mode-entry"><span>对应地图通关后</span><p>自由试验<br>不发放正式通关奖励</p></div></article>
+        </div>
+      </section>
+
+      <section class="faq section-space wrap" id="faq" aria-labelledby="faq-title">
+        <div class="faq-intro"><p class="section-index"><span>05</span> / 出发之前 <span class="index-rule" aria-hidden="true"></span></p><h2 id="faq-title">你可能想知道。</h2><p>游戏仍在开发。这里说明目前能做什么，以及还需要等待什么。</p></div>
+        <div class="faq-list">
+          <details id="release" open><summary>现在可以下载或试玩了吗？<svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary><div><p>目前尚未发布公开试玩包，也没有公布正式发售日期。这个网站用于介绍游戏，不能直接运行游戏。试玩或发行安排确定后，会在这里更新。</p><a class="text-link" href="https://github.com/YvanLouise/tactical-round/releases" target="_blank" rel="noopener noreferrer">查看发布页面 <svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a></div></details>
+          <details><summary>这是实时塔防，还是回合制游戏？<svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary><div><p>核心规则是回合制。普通战役默认由你点击「结束回合」，建筑行动完成后敌人才推进；自动回合会连续执行这套顺序。挑战模式则强制自动推进，并要求提前一回合提交操作。</p></div></details>
+          <details><summary>能保存进度，下次继续吗？<svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary><div><p>支持三个独立存档槽，分别保存旅程进度和蓝图等数据。正式关卡可保存未完成的对局，在对应关卡的战前页面继续；回合行动中保存会保留该回合开始时的完整状态。</p></div></details>
+          <details><summary>会在哪些平台发布？<svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary><div><p>当前展示内容来自 Windows 开发版本。正式发行平台、配置需求和价格尚未公布；页面的手机适配仅用于浏览介绍，不代表已经提供手机版游戏。</p></div></details>
+          <details><summary>页面上的图片都来自实际游戏吗？<svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary><div><p>战场、战前蓝图选择和旅程地图均为开发版本实机截图；首屏与角色旅程区使用游戏内剧情插画。开场按钮播放原版标志与标题动画，不是玩法预告片。开发中的界面、数值与内容仍会调整。</p></div></details>
+        </div>
+      </section>
+
       <section class="closing wrap" id="about" aria-labelledby="closing-title">
         <h2 id="closing-title">下一回合，<br>由你决定。</h2>
         <div class="closing-action">
-          <p>游戏持续开发中。关注项目，<br>见证几何世界的下一次扩展。</p>
+          <p>由 YvanLouise 制作，持续开发中。<br>关注介绍站，等待下一次旅程更新。</p>
           <a class="button button-primary" href="https://github.com/YvanLouise/tactical-round" target="_blank" rel="noopener noreferrer">关注 GitHub 项目 <svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
+          <a class="release-link" href="#release">试玩与发布状态 <svg class="icon" aria-hidden="true"><use href="#arrow-right"/></svg></a>
         </div>
       </section>
     </main>
@@ -157,7 +230,12 @@
         <source src="./assets/opening.mp4" type="video/mp4">
         你的浏览器暂不支持此视频，可<a href="./assets/opening.mp4">打开开场片段</a>观看。
       </video>
-      <p class="video-caption" id="video-caption">游戏原版开场 · 无声片段</p>
+      <p class="video-caption" id="video-caption">原版标志与标题动画 · 8.3 秒 · 无声片段</p>
+    </dialog>
+    <dialog class="image-dialog" id="image-dialog" aria-labelledby="image-title">
+      <div class="dialog-heading"><h2 id="image-title">实机画面</h2><button class="icon-button close-image" type="button" aria-label="关闭大图" autofocus><svg class="icon" aria-hidden="true"><use href="#close"/></svg></button></div>
+      <img id="expanded-image" alt="" width="1280" height="720">
+      <p class="image-caption">开发版本画面，界面与数值可能调整。<a id="image-original" class="text-link" href="./assets/battle.webp" target="_blank" rel="noopener noreferrer">打开原图 <svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a></p>
     </dialog>
   </body>
 </html>

@@ -4,7 +4,7 @@ const slides = [
   {
     image: "./assets/battle.webp",
     alt: "实际战场：围绕路线部署多种建筑，迎战迟滞守望者。",
-    label: "游戏实机画面",
+    label: "防线部署",
   },
   {
     image: "./assets/enemies.webp",
@@ -21,6 +21,7 @@ const slides = [
 const galleryImage = document.querySelector("#gallery-image");
 const galleryLabel = document.querySelector("#gallery-label");
 const galleryCurrent = document.querySelector("#gallery-current");
+const galleryEnlarge = document.querySelector("#gallery-enlarge");
 const tacticButtons = [...document.querySelectorAll(".tactic-trigger")];
 let activeSlide = 0;
 
@@ -30,6 +31,8 @@ function selectSlide(index) {
   galleryImage.src = slide.image;
   galleryImage.alt = slide.alt;
   galleryLabel.textContent = slide.label;
+  galleryEnlarge.href = slide.image;
+  galleryEnlarge.dataset.caption = `${slide.label} · 开发版本实机`;
   galleryCurrent.textContent = String(activeSlide + 1).padStart(2, "0");
   tacticButtons.forEach((button, buttonIndex) => {
     const selected = buttonIndex === activeSlide;
@@ -61,7 +64,7 @@ document.addEventListener("keydown", (event) => {
     menuToggle.focus();
   }
 });
-window.matchMedia("(min-width: 761px)").addEventListener("change", (event) => {
+window.matchMedia("(min-width: 981px)").addEventListener("change", (event) => {
   if (event.matches) setMenu(false);
 });
 
@@ -72,6 +75,7 @@ watchButton.addEventListener("click", () => {
   openingDialog.showModal();
   document.body.classList.add("dialog-open");
   openingVideo.currentTime = 0;
+  document.querySelector("#video-caption").textContent = "原版标志与标题动画 · 8.3 秒 · 无声片段";
   openingVideo.play().catch(() => {
     document.querySelector("#video-caption").textContent = "点击播放器的播放按钮观看 · 游戏原版开场 · 无声片段";
   });
@@ -91,6 +95,36 @@ openingVideo.addEventListener("error", () => {
   document.querySelector("#video-caption").textContent = "视频暂时无法播放，请稍后重试。";
 });
 
+const imageDialog = document.querySelector("#image-dialog");
+let imageTrigger = null;
+document.querySelectorAll("[data-lightbox]").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    imageTrigger = link;
+    const expandedImage = document.querySelector("#expanded-image");
+    expandedImage.src = link.href;
+    expandedImage.alt = link.querySelector("img").alt;
+    document.querySelector("#image-title").textContent = link.dataset.caption;
+    document.querySelector("#image-original").href = link.href;
+    imageDialog.showModal();
+    document.body.classList.add("dialog-open");
+  });
+});
+document.querySelector(".close-image").addEventListener("click", () => imageDialog.close());
+imageDialog.addEventListener("click", (event) => {
+  if (event.target !== imageDialog) return;
+  const bounds = imageDialog.getBoundingClientRect();
+  if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) imageDialog.close();
+});
+imageDialog.addEventListener("close", () => {
+  document.body.classList.remove("dialog-open");
+  imageTrigger?.focus({ preventScroll: true });
+});
+document.querySelector(".release-link").addEventListener("click", () => {
+  document.querySelector("#release").open = true;
+});
+
 if ("IntersectionObserver" in window) {
   const navLinks = [...navigation.querySelectorAll("a")];
   const observer = new IntersectionObserver((entries) => {
@@ -104,5 +138,5 @@ if ("IntersectionObserver" in window) {
       });
     }
   }, { rootMargin: "-10% 0px -55% 0px", threshold: 0 });
-  document.querySelectorAll("#gameplay, #world, #about").forEach((section) => observer.observe(section));
+  navLinks.forEach((link) => observer.observe(document.querySelector(link.hash)));
 }
