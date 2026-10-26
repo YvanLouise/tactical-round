@@ -6,7 +6,17 @@
   "description": "Tactical Round game introduction website",
   "scripts": {
     "start": "node tools/serve.mjs",
-    "check": "node --check app.js && node tools/check.mjs"
+    "editor": "node tools/editor/server.mjs",
+    "editor:open": "node tools/editor/start.mjs",
+    "test:editor": "node --test tools/editor/editor.test.mjs",
+    "check": "node --check app.js && node --check tools/editor/ui/editor.js && node --check tools/editor/server.mjs && node tools/check.mjs"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "marked": "15.0.12",
+    "parse5": "8.0.1",
+    "sanitize-html": "2.17.0"
+  }
 }

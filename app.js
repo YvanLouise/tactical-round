@@ -1,22 +1,11 @@
 "use strict";
 
-const slides = [
-  {
-    image: "./assets/battle.webp",
-    alt: "实际战场：围绕路线部署多种建筑，迎战迟滞守望者。",
-    label: "防线部署",
-  },
-  {
-    image: "./assets/enemies.webp",
-    alt: "游戏实机画面：首次遇到敌人时，查看几何敌人的特性与应对提示。",
-    label: "认识几何敌人",
-  },
-  {
-    image: "./assets/challenge.webp",
-    alt: "游戏实机画面：自动回合模式中，战场按建筑和敌人行动阶段依次推进。",
-    label: "掌控回合节奏",
-  },
-];
+const readSlides = () => [...document.querySelectorAll(".tactic-trigger")].map((button) => ({
+  image: button.dataset.image,
+  alt: button.dataset.imageAlt,
+  label: button.dataset.label,
+}));
+let slides = readSlides();
 
 const galleryImage = document.querySelector("#gallery-image");
 const galleryLabel = document.querySelector("#gallery-label");
@@ -47,6 +36,10 @@ tacticButtons.forEach((button) => {
 });
 document.querySelector(".gallery-previous").addEventListener("click", () => selectSlide(activeSlide - 1));
 document.querySelector(".gallery-next").addEventListener("click", () => selectSlide(activeSlide + 1));
+window.addEventListener("website-content-updated", () => {
+  slides = readSlides();
+  selectSlide(activeSlide);
+});
 
 const menuToggle = document.querySelector(".menu-toggle");
 const navigation = document.querySelector("#main-nav");
