@@ -1,6 +1,6 @@
 :root { color-scheme: dark; --bg: #091a20; --rail: #10272e; --input: #07171d; --line: #28474e; --accent: #25e0e4; --text: #edf4f4; --muted: #a4b9bf; font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
 * { box-sizing: border-box; }
-body { margin: 0; height: 100svh; background: var(--bg); color: var(--text); display: grid; grid-template-rows: 78px minmax(0,1fr) 44px; font-size: 14px; }
+body { margin: 0; height: 100svh; background: var(--bg); color: var(--text); display: grid; grid-template-columns: minmax(0,1fr); grid-template-rows: 78px minmax(0,1fr) 44px; font-size: 14px; }
 button, input, textarea { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 button { cursor: pointer; color: inherit; }
@@ -73,7 +73,7 @@ input:focus, textarea:focus { outline: 1px solid var(--accent); border-color: va
 .statusbar.error .icon { color: #ffbe99; }
 .workspace.readme-mode { grid-template-columns: 216px minmax(0,1fr) minmax(0,1.08fr); }
 .readme-mode .edit-pane { display: flex; flex-direction: column; }
-#readme-source { flex: 1; resize: none; min-height: 350px; white-space: pre; font: 14px/1.9 Consolas,"Microsoft YaHei",monospace; tab-size: 2; }
+#readme-source { flex: 1; resize: none; min-height: 350px; white-space: pre-wrap; overflow-wrap: anywhere; font: 14px/1.9 Consolas,"Microsoft YaHei",monospace; tab-size: 2; }
 .deployment { margin-top: 14px; padding: 17px 18px; border: 1px solid #395b65; border-radius: 4px; font-size: 12px; }
 .deployment h3 { font-size: 14px; font-weight: 600; }
 .deployment ol { display: flex; list-style: none; gap: 28px; margin: 17px 0 14px; padding: 0; color: var(--muted); }
