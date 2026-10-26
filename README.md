@@ -33,6 +33,8 @@ npm run editor:open
 - 点击「保存更改」，写入本地文件。保存前的 HTML 和 README 会备份到 `.local/editor/backups/`；如果文件已被其他程序改过，会提示重新载入。
 - 点击「一键上线」，保存并提交文案、README 和所用的新图片，推送到 `origin/main`，然后显示 GitHub Pages 的部署结果。
 
+未保存的修改会暂存为浏览器草稿。网站文件没有变化时，重新打开编辑站即可继续编辑。
+
 上线前，需要让本机 Git 能正常推送到 GitHub。网站仓库应处于 `main` 分支，`origin` 指向 `YvanLouise/tactical-round`，暂存区保持为空。
 
 编辑站仅在本机运行。上传图片保存在 `assets/uploads/`；GitHub Pages 发布的是静态介绍网站。
